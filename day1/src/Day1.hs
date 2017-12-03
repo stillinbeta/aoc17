@@ -1,7 +1,6 @@
-module Day1 (
-  sumDuplicates
-, sumMiddleDuplicates
-  ) where
+module Day1 (sumDuplicates
+            , sumMiddleDuplicates
+            ) where
 
 sumDuplicates :: [Int] -> Int
 sumDuplicates [] = 0
