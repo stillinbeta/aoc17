@@ -2,11 +2,14 @@ module Day3 (memoryDistance
             ,drawGrid
             ,spiral
             ,Dir (..)
+            ,fillSquares
+            ,squareWithValue
             )
 where
 
-import Control.Monad (replicateM)
-import Control.Monad.Trans.State
+import qualified Data.Map.Lazy as Map
+import Data.List (find)
+import Data.Maybe (mapMaybe, fromJust)
 
 data Dir = North | South | East | West deriving (Show, Eq)
 
@@ -42,20 +45,39 @@ nextState s
   where nc = nextCorner s
         i = distance s
 
-spiral :: Int -> [Dir]
-spiral i = evalState (replicateM i spiral') (SpiralState 1 1 1 East)
+spiral :: [Dir]
+spiral = spiral' (SpiralState 1 1 1 East)
 
-spiral' :: State SpiralState Dir
-spiral' = do
-  dir <- gets direction
-  modify nextState
-  return dir
+spiral' :: SpiralState -> [Dir]
+spiral' s = (direction s):(spiral' $ nextState s)
 
-drawGrid :: Int -> [(Int, Int)]
-drawGrid x = scanl next (0,0) (spiral $ x - 1)
-
+drawGrid :: [(Int, Int)]
+drawGrid = scanl next (0,0) spiral
 
 memoryDistance :: Int -> Int
 memoryDistance i =
-  let (x, y) = last $ drawGrid i in
+  let (x, y) = last $ take i drawGrid in
     abs x + abs y
+
+-- Part B
+
+fillSquares :: [Int]
+fillSquares = fillSquares' (Map.singleton (0,0) 1) drawGrid
+
+fillSquares' :: GridMap -> [(Int, Int)] -> [Int]
+fillSquares' m (p:ps) =
+  let val = sumNeighbours p m in
+  val:(fillSquares' (Map.insert p val m) ps)
+
+type GridMap = Map.Map (Int, Int) Int
+
+sumNeighbours :: (Int, Int) -> GridMap -> Int
+sumNeighbours (x, y) m =
+  let lookups = [(x-1, y+1), (x, y+1), (x+1, y+1)
+                ,(x-1, y  ), (x, y  ), (x+1, y  )
+                ,(x-1, y-1), (x, y-1), (x+1, y-1)
+                ] in
+    sum $ mapMaybe (`Map.lookup`m) lookups
+
+squareWithValue :: Int -> Int
+squareWithValue x = fromJust $ find (>x) fillSquares
