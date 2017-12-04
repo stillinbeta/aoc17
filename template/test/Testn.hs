@@ -7,6 +7,6 @@ main :: IO ()
 main = hspec $ do
   describe "dayn" $ do
     it "should pass part a" $ do
-      1 `shouldBe` 1
+      pending
     it "should pass part b" $ do
-      1 `shouldBe` 1
+      pending
