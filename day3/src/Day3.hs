@@ -65,9 +65,10 @@ fillSquares :: [Int]
 fillSquares = fillSquares' (Map.singleton (0,0) 1) drawGrid
 
 fillSquares' :: GridMap -> [(Int, Int)] -> [Int]
+fillSquares' _ [] = []
 fillSquares' m (p:ps) =
   let val = sumNeighbours p m in
-  val:(fillSquares' (Map.insert p val m) ps)
+  val:fillSquares' (Map.insert p val m) ps
 
 type GridMap = Map.Map (Int, Int) Int
 
