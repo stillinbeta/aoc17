@@ -9,4 +9,4 @@ main = hspec $ do
     it "should pass part a" $ do
       pending
     it "should pass part b" $ do
-      pending
+      pendingWith "part b not unlocked"
