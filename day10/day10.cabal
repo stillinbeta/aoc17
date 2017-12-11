@@ -1,0 +1,32 @@
+name:                day10
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/stillinbeta/aoc17#readme
+license:             BSD3
+author:              Liz Frost
+maintainer:          web@stillinbeta.com
+copyright:           BSD3
+category:            Demo
+build-type:          Simple
+cabal-version:       >=1.10
+
+executable day10
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  default-language:    Haskell2010
+  other-modules:       Day10
+  build-depends:       base >= 4.7 && < 5,
+                       split == 0.2.*,
+                       vector == 0.12.*
+
+test-suite day10-test
+  type:                exitcode-stdio-1.0
+  main-is:             Test10.hs
+  other-modules:       Day10
+  hs-source-dirs:      test
+                       src
+  build-depends:       base >= 4.7 && < 5,
+                       hspec == 2.*,
+                       split == 0.2.*,
+                       vector == 0.12.*
