@@ -7,5 +7,7 @@ import Data.List.Split (splitOn)
 
 main :: IO ()
 main =  do
-  lengths <- map read . splitOn "," <$> getLine
+  line <- getLine
+  let lengths = map read . splitOn "," $ line
   print $ Day10.knotTie 256 lengths
+  print $ Day10.knotHash line
