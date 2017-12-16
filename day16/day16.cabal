@@ -1,0 +1,37 @@
+name:                day16
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/stillinbeta/aoc17#readme
+license:             BSD3
+author:              Liz Frost
+maintainer:          web@stillinbeta.com
+copyright:           BSD3
+category:            Demo
+build-type:          Simple
+cabal-version:       >=1.10
+
+executable day16
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  default-language:    Haskell2010
+  other-modules:       Day16
+  ghc-options:         -O2
+  build-depends:       base >= 4.7 && < 5,
+                       conainers == 0.5.*,
+                       split == 0.2.*,
+                       transformers == 0.5.*,
+                       vector == 0.12.*
+
+test-suite day16-test
+  type:                exitcode-stdio-1.0
+  main-is:             Test16.hs
+  other-modules:       Day16
+  hs-source-dirs:      test
+                       src
+  build-depends:       base >= 4.7 && < 5,
+                       conainers == 0.5.*,
+                       hspec == 2.*,
+                       split == 0.2.*,
+                       transformers == 0.5.*,
+                       vector == 0.12.*
