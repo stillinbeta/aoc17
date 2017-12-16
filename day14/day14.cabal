@@ -1,4 +1,4 @@
-name:                day10
+name:                day14
 version:             0.1.0.0
 -- synopsis:
 -- description:
@@ -11,30 +11,26 @@ category:            Demo
 build-type:          Simple
 cabal-version:       >=1.10
 
-library
-  hs-source-dirs:      src
-  default-language:    Haskell2010
-  exposed-modules:     Day10
-  build-depends:       base >= 4.7 && < 5,
-                       split == 0.2.*,
-                       vector == 0.12.*
-
-executable day10
+executable day14
   hs-source-dirs:      src
   main-is:             Main.hs
   default-language:    Haskell2010
-  other-modules:       Day10
+  other-modules:       Day14
   build-depends:       base >= 4.7 && < 5,
-                       split == 0.2.*,
+                       day10,
+                       matrices == 0.4.*,
+                       primitive == 0.6.*,
                        vector == 0.12.*
 
-test-suite day10-test
+test-suite day14-test
   type:                exitcode-stdio-1.0
-  main-is:             Test10.hs
-  other-modules:       Day10
+  main-is:             Test14.hs
+  other-modules:       Day14
   hs-source-dirs:      test
                        src
   build-depends:       base >= 4.7 && < 5,
+                       day10,
                        hspec == 2.*,
-                       split == 0.2.*,
+                       matrices == 0.4.*,
+                       primitive == 0.6.*,
                        vector == 0.12.*
