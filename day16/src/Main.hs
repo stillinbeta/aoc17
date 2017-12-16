@@ -7,5 +7,5 @@ import Data.List.Split (splitOn)
 main :: IO ()
 main =  do
   instrs <- splitOn "," <$> getLine
-  print $ Day16.dance instrs
-  print $ Day16.danceForever instrs
+  putStrLn $ Day16.dance instrs
+  putStrLn $ Day16.danceForever instrs

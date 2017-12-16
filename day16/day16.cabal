@@ -18,10 +18,12 @@ executable day16
   other-modules:       Day16
   ghc-options:         -O2
   build-depends:       base >= 4.7 && < 5,
-                       conainers == 0.5.*,
+                       primitive == 0.6.*,
                        split == 0.2.*,
                        transformers == 0.5.*,
-                       vector == 0.12.*
+                       unordered-containers == 0.2.*,
+                       vector == 0.12.*,
+                       vector-instances == 3.4.*
 
 test-suite day16-test
   type:                exitcode-stdio-1.0
@@ -30,8 +32,9 @@ test-suite day16-test
   hs-source-dirs:      test
                        src
   build-depends:       base >= 4.7 && < 5,
-                       conainers == 0.5.*,
                        hspec == 2.*,
-                       split == 0.2.*,
+                       primitive == 0.6.*,
                        transformers == 0.5.*,
-                       vector == 0.12.*
+                       unordered-containers == 0.2.*,
+                       vector == 0.12.*,
+                       vector-instances == 3.4.*

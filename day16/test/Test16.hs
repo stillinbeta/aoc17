@@ -3,7 +3,7 @@ module Main where
 import qualified Day16
 import Test.Hspec
 
-import qualified Data.Vector as V
+import qualified Data.Vector.Unboxed as V
 
 main :: IO ()
 main = hspec $ do
@@ -22,4 +22,4 @@ main = hspec $ do
       Day16.parse "pe/d" `shouldBe` Day16.Partner 'e' 'd'
       Day16.dance' 5 [ "s1", "x3/4", "pe/b"] `shouldBe` "baedc"
     it "should pass part b" $ do
-      pendingWith "part b not unlocked"
+      pendingWith "no tests for part b"
