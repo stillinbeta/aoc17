@@ -53,6 +53,7 @@ packages:
 - day14
 - day15
 - day16
+- day17
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
 extra-deps: []
