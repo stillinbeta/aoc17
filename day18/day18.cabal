@@ -19,6 +19,7 @@ executable day18
   build-depends:       base >= 4.7 && < 5,
                        containers == 0.5.*,
                        mtl == 2.2.*,
+                       pretty-show == 1.6.*,
                        parsec == 3.1.*
 
 test-suite day18-test
@@ -31,4 +32,5 @@ test-suite day18-test
                        containers == 0.5.*,
                        hspec == 2.*,
                        mtl == 2.2.*,
+                       pretty-show == 1.6.*,
                        parsec == 3.1.*

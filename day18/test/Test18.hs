@@ -30,6 +30,14 @@ main = hspec $ do
                     , Jgz (Register 'a') (Num (-2))
                     ]
       map parse instrs `shouldBe` instrs'
-      duet instrs `shouldBe` 4
+      duetA instrs `shouldBe` 4
     it "should pass part b" $ do
-      pendingWith "part b not unlocked"
+      let instrs = [ "snd 1"
+                   , "snd 2"
+                   , "snd p"
+                   , "rcv a"
+                   , "rcv b"
+                   , "rcv c"
+                   , "rcv d"
+                   ]
+      duetB instrs `shouldBe` 3
