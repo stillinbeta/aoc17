@@ -1,0 +1,32 @@
+name:                day19
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/stillinbeta/aoc17#readme
+license:             BSD3
+author:              Liz Frost
+maintainer:          web@stillinbeta.com
+copyright:           BSD3
+category:            Demo
+build-type:          Simple
+cabal-version:       >=1.10
+
+executable day19
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  default-language:    Haskell2010
+  other-modules:       Day19
+  build-depends:       base >= 4.7 && < 5,
+                       containers == 0.5.*,
+                       vector == 0.12.*
+
+test-suite day19-test
+  type:                exitcode-stdio-1.0
+  main-is:             Test19.hs
+  other-modules:       Day19
+  hs-source-dirs:      test
+                       src
+  build-depends:       base >= 4.7 && < 5,
+                       containers == 0.5.*,
+                       hspec == 2.*,
+                       vector == 0.12.*
